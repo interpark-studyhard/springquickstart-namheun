@@ -109,7 +109,7 @@ public class BoardDAO implements BoardService {
 			  stmt.setInt(1, vo.getSeq());
 			  rs = stmt.executeQuery();
 			  
-			  if( rs.next()) {
+			  if( rs.next() ) {
 				  board = new BoardVO();
 				  board.setSeq(rs.getInt("SEQ"));
 				  board.setTitle(rs.getString("TITLE"));

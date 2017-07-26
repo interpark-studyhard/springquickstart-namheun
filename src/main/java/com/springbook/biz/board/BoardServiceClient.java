@@ -19,14 +19,13 @@ public static void main(String[] args) {
 	vo.setTitle("임시 제목");
 	vo.setWriter("홍길동");
 	vo.setContent("임시내용/..................)");
-	boardService.insertBoard(vo);
+	//boardService.insertBoard(vo);
 	
 	//글 목록 검색 기능 테스트
 	List<BoardVO> boardList = boardService.getBoardList(vo);
 	
 	for(BoardVO board : boardList){
-		
-			System.out.println("---> "+board.toString());
+			System.out.println("--->> "+board.toString());
 	}
 	
 	//Spring 컨테이너 종료

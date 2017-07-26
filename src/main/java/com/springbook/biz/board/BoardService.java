@@ -2,8 +2,15 @@ package com.springbook.biz.board;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.springbook.biz.board.impl.BoardDAO;
+import com.springbook.biz.common.LogAdvice;
 
 public interface BoardService {
+	
+	
 
 	//±Û µî·Ï
 	void insertBoard(BoardVO vo);
