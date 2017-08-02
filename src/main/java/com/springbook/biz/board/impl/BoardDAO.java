@@ -40,7 +40,7 @@ public class BoardDAO implements BoardService {
 		   stmt.setString(1, vo.getTitle());
 		   stmt.setString(2, vo.getWriter());
 		   stmt.setString(3, vo.getContent());
-		   
+		   stmt.executeUpdate();
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -50,7 +50,6 @@ public class BoardDAO implements BoardService {
 	   
 	}
 	//±Û ¼öÁ¤
-	   
 	  /* (non-Javadoc)
 	 * @see com.springbook.biz.board.impl.BoardService#updateBoard(com.springbook.biz.board.BoardVO)
 	 */
@@ -63,6 +62,9 @@ public class BoardDAO implements BoardService {
 			   stmt.setString(1, vo.getTitle());
 			   stmt.setString(2, vo.getContent());
 			   stmt.setInt(3, vo.getSeq());
+			   
+			   stmt.executeUpdate();
+			   
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -84,6 +86,7 @@ public class BoardDAO implements BoardService {
 			  conn = JDBCUtil.getConnection();
 			  stmt = conn.prepareStatement(BOARD_DELETE);
 			  stmt.setInt(1, vo.getSeq());
+			   stmt.executeUpdate();
 		  } catch (SQLException e) {
 			  // TODO Auto-generated catch block
 			  e.printStackTrace();
@@ -139,7 +142,7 @@ public class BoardDAO implements BoardService {
 		  List<BoardVO> list = new ArrayList<BoardVO>();
 		  
 		  try {
-			  BoardVO board = new BoardVO();
+			  BoardVO board = null;
 			  conn = JDBCUtil.getConnection();
 			  stmt = conn.prepareStatement(BOARD_LIST);
 			  rs = stmt.executeQuery();
