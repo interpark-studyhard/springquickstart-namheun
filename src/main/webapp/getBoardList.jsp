@@ -6,15 +6,16 @@
 
     <%
     
-    //1. 사용자 입력 정보 추출(검색기능은 나중에 구현)
+  /*   //1. 사용자 입력 정보 추출(검색기능은 나중에 구현)
     //2. db연동 처리
     
     BoardVO vo = new BoardVO();
     BoardDAO boardDao = new BoardDAO();
     List<BoardVO> boardList = boardDao.getBoardList(vo);
     
-    //3. 응답 화면 구성
+    //3. 응답 화면 구성 */
     
+    List<BoardVO> boardList = (List) session.getAttribute("boardList");
     %>
     
     <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -27,9 +28,9 @@
 <body>
 <center>
 <h1>글 목록 </h1>
-<h3> 테스트님 환영 합니다 <a href="logout_proc.jsp">Log-out</a></h3>
+<h3> 테스트님 환영 합니다 <a href="logout.do">Log-out</a></h3>
 
-<form action = "getBoardList.jsp" method="post">
+<form action ="getBoardList.jsp" method="post">
 	<table border="1" cellpadding = "0" cellspacing="0" width="700">
 		<tr>
 			<td align = "right">
@@ -57,7 +58,7 @@
 
 	<tr>
 		<td> <%=board.getSeq() %> </td>
-		<td align = "left" > <a href="getBoard.jsp?seq=<%=board.getSeq() %>">
+		<td align = "left" > <a href="getBoard.do?seq=<%=board.getSeq() %>">
 			<%=board.getTitle() %></a></td>
 		<td><%=board.getWriter() %></td>
 		<td><%=board.getRegDate() %></td>
